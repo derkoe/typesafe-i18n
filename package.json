@@ -88,6 +88,7 @@
 		"/webpack"
 	],
 	"scripts": {
+		"build:cli-2": "tsm ./packages/cli/esbuild.config.ts",
 		"-- DEV -------------------------------------------------": "",
 		"dev:cli": "rollup -c packages/cli/rollup.config.js -w",
 		"dev:rollup": "rollup -c packages/rollup-plugin/rollup.config.js -w",
@@ -148,6 +149,7 @@
 		"chokidar": "^3.5.2",
 		"commander": "^8.3.0",
 		"concurrently": "^6.4.0",
+		"esbuild": "^0.14.0",
 		"eslint": "^8.2.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-prettier": "^4.0.0",
