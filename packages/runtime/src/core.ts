@@ -74,6 +74,26 @@ export type BaseFormatters = {
 }
 
 // --------------------------------------------------------------------------------------------------------------------
+
+type Permutation<Params extends string, Copy = Params> = [Params] extends [never]
+	? []
+	: Copy extends infer Param
+	? [Param, ...Permutation<Exclude<Params, Param>>]
+	: []
+
+type StringWithParams<Params extends unknown[]> = Params extends []
+	? `${string}`
+	: Params extends [infer Param, ...infer Rest]
+	? Param extends string
+		? Rest extends string[]
+			? `${string}{${Param}}${StringWithParams<Rest>}`
+			: ''
+		: ''
+	: ''
+
+export type RequiredParams<Params extends string> = StringWithParams<Permutation<Params>>
+
+// --------------------------------------------------------------------------------------------------------------------
 // implementation -----------------------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 

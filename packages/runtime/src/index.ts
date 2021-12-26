@@ -1,4 +1,4 @@
-export { BaseTranslation, LocalizedString } from './core'
+export type { BaseTranslation, LocalizedString, RequiredParams } from './core'
 export { i18n } from './util.instance'
 export {
 	AsyncFormattersInitializer,
